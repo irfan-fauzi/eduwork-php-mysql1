@@ -6,7 +6,7 @@ $categories = $data['categories'];
 <main class="container mx-auto px-4 py-10">
   <h1 class="text-3xl font-bold text-center mb-10 text-gray-700">🛍️ New Arrival</h1>
 
-  <!-- 🔍 Form Pencarian -->
+  
   <form method="GET" action="<?= BASE_URL ?>/product" class="flex flex-col md:flex-row gap-4 mb-10 items-center justify-center">
     <!-- Pencarian kategori -->
     <select name="category" onchange="this.form.submit()" 
@@ -32,7 +32,7 @@ $categories = $data['categories'];
     </div>
   </form>
 
-  <!-- 🔸 Daftar Produk -->
+  <!-- Daftar Produk -->
   <?php if (!empty($products)): ?>
   <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <?php foreach ($products as $product): ?>
