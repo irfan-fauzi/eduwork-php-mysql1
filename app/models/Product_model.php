@@ -18,20 +18,19 @@ class Product_model {
     return $this->db->single();
   }
 
-   // ✅ Ambil semua kategori unik dari database
+   
   public function getAllCategories() {
     $this->db->query('SELECT DISTINCT category FROM ' . $this->table);
     return $this->db->resultSet();
   }
-// ✅ Ambil produk berdasarkan kategori
+
   public function getProductsByCategory($category) {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE category = :category');
     $this->db->bind(':category', $category);
     return $this->db->resultSet();
   }
 
-  // ✅ Ambil produk berdasarkan nama (pencarian teks)
-  public function searchProductsByName($keyword) {
+   public function searchProductsByName($keyword) {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE nama_produk LIKE :keyword');
     $this->db->bind(':keyword', "%$keyword%");
     return $this->db->resultSet();

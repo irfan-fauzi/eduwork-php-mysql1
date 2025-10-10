@@ -18,9 +18,6 @@ class Product extends Controller {
 
     $data['products'] = $products;
     $data['categories'] = $categories;
-
-    
-
     // ambil produk berdasarkan keyword
     
     $this->view("templates/header", $data);
