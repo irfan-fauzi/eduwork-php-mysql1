@@ -31,26 +31,32 @@
         <div class="mb-5 flex flex-col mt-5 gap-2">
             <label for="harga">Harga:</label>
             <input type="number" id="harga" name="harga"
-                class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300 max-w-1/4">
+                class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300 max-w-1/4"
+                placeholder="Rp.90.000">
         </div>
 
         <!-- Deskripsi -->
         <div class="mb-5 flex flex-col mt-5 gap-2">
             <label for="deskripsi">Deskripsi:</label>
             <textarea id="deskripsi" name="deskripsi" rows="9" cols="110"
-                class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300"></textarea>
+                class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300"
+                placeholder="empatkan semua barang-barang bawaan saat beraktivitas dengan Migrates Pack 15L..n"></textarea>
         </div>
 
         <!-- Stok -->
         <div class="mb-5 flex flex-col mt-5 gap-2">
             <label for="stok">Stok:</label>
-            <input type="number" id="stok" name="stok" class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300 max-w-1/4">
+            <input type="number" id="stok" name="stok"
+                class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300 max-w-1/4"
+                placeholder="20">
         </div>
 
         <!-- Kategori -->
         <div class="mb-5 flex flex-col mt-5 gap-2">
             <label for="category">Kategori:</label>
-            <input type="text" id="category" name="category" class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300 max-w-2/4">
+            <input type="text" id="category" name="category"
+                class="px-3 py-2 bg-white focus:outline-none focus:ring-0 focus:border-b focus:border-gray-300 max-w-2/4"
+                placeholder="Shoes">
         </div>
 
         <button type="submit" class="bg-green-600 px-4 py-2 rounded-sm text-white font-semibold">Simpan</button>
