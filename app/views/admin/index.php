@@ -1,7 +1,7 @@
-<!-- SIDEBAR -->
-
-
-<!-- MAIN -->
+<?php
+  $products = $data['products'];
+ 
+?>
 
 
 <!-- CONTENT -->
@@ -33,27 +33,14 @@
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-semibold">Daftar Produk</h3>
                     <div class="flex items-center gap-2">
-                        <button class="py-2 px-3 rounded bg-emerald-500 text-white text-sm">Tambah
-                            Produk</button>
-                        <button class="py-2 px-3 rounded border text-sm">Import</button>
+                        <a href="<?= BASE_URL ?>/admin/addProduct/" class="py-2 px-3 rounded bg-emerald-500 text-white text-sm">Tambah
+                            Produk</a>
+                        
                     </div>
                 </div>
 
                 <!-- summary metrics -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                    <div class="p-4 bg-slate-50 rounded shadow-sm">
-                        <div class="text-sm text-slate-500">Total Produk</div>
-                        <div class="text-2xl font-bold">128</div>
-                    </div>
-                    <div class="p-4 bg-slate-50 rounded shadow-sm">
-                        <div class="text-sm text-slate-500">Stok Habis</div>
-                        <div class="text-2xl font-bold text-rose-500">8</div>
-                    </div>
-                    <div class="p-4 bg-slate-50 rounded shadow-sm">
-                        <div class="text-sm text-slate-500">Produk Terlaris (Minggu)</div>
-                        <div class="text-2xl font-bold">Kaos Vintage</div>
-                    </div>
-                </div>
+
 
                 <!-- products table (simple) -->
                 <div class="overflow-x-auto">
@@ -74,12 +61,14 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-slate-100">
+                          <?php $i = 1; ?>
+                          <?php foreach ($products as $product): ?>
                             <tr>
-                                <td class="px-4 py-3 text-sm">1</td>
-                                <td class="px-4 py-3 text-sm">Kaos Vintage</td>
-                                <td class="px-4 py-3 text-sm">Pakaian</td>
-                                <td class="px-4 py-3 text-sm">Rp 120.000</td>
-                                <td class="px-4 py-3 text-sm">24</td>
+                                <td class="px-4 py-3 text-sm"><?= $i++; ?> </td>
+                                <td class="px-4 py-3 text-sm"><?= $product['nama_produk']; ?> </td>
+                                <td class="px-4 py-3 text-sm"><?= $product['category']; ?> </td>
+                                <td class="px-4 py-3 text-sm">Rp. <?= number_format($product['harga'], ); ?> </td>
+                                <td class="px-4 py-3 text-sm"><?= $product['stok']; ?></td>
                                 <td class="px-4 py-3 text-sm">
                                     <div class="flex gap-2">
                                         <button class="px-2 py-1 text-xs rounded border">Edit</button>
@@ -87,19 +76,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="px-4 py-3 text-sm">2</td>
-                                <td class="px-4 py-3 text-sm">Kacamata Vintage</td>
-                                <td class="px-4 py-3 text-sm">Aksesoris</td>
-                                <td class="px-4 py-3 text-sm">Rp 250.000</td>
-                                <td class="px-4 py-3 text-sm">12</td>
-                                <td class="px-4 py-3 text-sm">
-                                    <div class="flex gap-2">
-                                        <button class="px-2 py-1 text-xs rounded border">Edit</button>
-                                        <button class="px-2 py-1 text-xs rounded border">Hapus</button>
-                                    </div>
-                                </td>
-                            </tr>
+                           <?php endforeach ?>
                             <!-- more rows... -->
                         </tbody>
                     </table>

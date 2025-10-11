@@ -1,19 +1,20 @@
 <?php
 class Product extends Controller {
 
-  
+  protected $productModel;
+  public function __construct(){
+    $this->productModel = $this->model('Product_model');
+  }
   public function index() {
-    $data["title"] = 'Product';
 
-  
-    $productModel = $this->model('Product_model');
-    $categories = $productModel->getAllCategories();
+    $data["title"] = 'Product';
+    $categories = $this->productModel->getAllCategories();
     if (isset($_GET['category']) && $_GET['category'] !== '') {
-      $products = $productModel->getProductsByCategory($_GET['category']);
+      $products = $this->productModel->getProductsByCategory($_GET['category']);
     }elseif (isset($_GET['keyword']) && $_GET['keyword'] !== '') {
-      $products = $productModel->searchProductsByName($_GET['keyword']);
+      $products = $this->productModel->searchProductsByName($_GET['keyword']);
     } else {
-      $products = $productModel->getAllProducts();
+      $products = $this->productModel->getAllProducts();
     }
 
     $data['products'] = $products;
