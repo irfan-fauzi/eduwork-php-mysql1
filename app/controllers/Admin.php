@@ -1,6 +1,7 @@
 <?php
 
 class Admin extends Controller {
+  
   public function index(){
     $this->view('templates/admin/header', );
     $this->view('templates/admin/sidebar', );
@@ -8,6 +9,13 @@ class Admin extends Controller {
     $this->view('admin/index', );
     $this->view('templates/admin/footer', );
    
+  }
+  public function create(){
+    $this->view('templates/admin/header', );
+    $this->view('templates/admin/sidebar', );
+    $this->view('templates/admin/navbar', );
+    $this->view('admin/add_product', );
+    $this->view('templates/admin/footer', );
   }
 }
 
