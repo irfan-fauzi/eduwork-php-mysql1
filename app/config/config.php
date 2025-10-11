@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', 'http://localhost/toko-eduwork/public/');
+define('BASE_URL', 'http://localhost/toko-eduwork/');
 
 define('DB_HOST','localhost');
 define('DB_USER', 'root');

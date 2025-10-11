@@ -15,7 +15,7 @@
       <ul class="flex gap-5">
         <li class="cursor-pointer"><a href=<?= BASE_URL ?>>home </a></li>
         <li class="cursor-pointer"><a href=<?= BASE_URL .'about' ?>>about</a></li>
-        
+        <li class="cursor-pointer"><a href=<?= BASE_URL .'admin' ?>>Admin</a></li>
         <li class="cursor-pointer"><a href=<?= BASE_URL .'product' ?>>Products</a></li>
       </ul>
     </nav>

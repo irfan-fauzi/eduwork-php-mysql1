@@ -26,7 +26,7 @@
     // ketika mengetik url di browser, urutannya /controller/method misal 'home/index' home=controller index=method
     // cek apakah ada file didalam folder controller yang namanya sesuai dengan apa yang di tulis di url
     if (isset($url[0])) {
-      if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+      if (file_exists('./app/controllers/' . $url[0] . '.php')) {
         // kalau ada, timpa controller $controller di atas jadi controller baru yang di input
         $this->controller = $url[0];
         unset($url[0]);
@@ -34,7 +34,7 @@
       }
     }
 
-    require_once '../app/controllers/' . $this->controller .'.php';
+    require_once './app/controllers/' . $this->controller .'.php';
     $this->controller = new $this->controller(); // instansiasi object nya
     // cek dulu method nya ada ga didalam controllernya
     if (isset($url[1])) {
