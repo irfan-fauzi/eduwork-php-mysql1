@@ -2,7 +2,7 @@
             <div class="flex items-center gap-3 px-2 py-4">
                 <div class="w-10 h-10 bg-white/10 rounded flex items-center justify-center">AL</div>
                 <div>
-                    <div class="brand text-lg">AdminTail</div>
+                    <div class="brand text-lg">Admin Store</div>
                     <div class="text-xs text-slate-300">Dashboard</div>
                 </div>
             </div>

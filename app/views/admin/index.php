@@ -33,7 +33,7 @@
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-semibold">Daftar Produk</h3>
                     <div class="flex items-center gap-2">
-                        <a href="<?= BASE_URL ?>/admin/addProduct/" class="py-2 px-3 rounded bg-emerald-500 text-white text-sm">Tambah
+                        <a href="<?= BASE_URL ?>/admin/addProduct/" class="py-2 px-3 rounded bg-emerald-500 text-white text-sm hover:bg-emerald-700 ">Tambah
                             Produk</a>
                         
                     </div>
