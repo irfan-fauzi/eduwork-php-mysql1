@@ -38,7 +38,7 @@ $categories = $data['categories'];
     <?php foreach ($products as $product): ?>
       <li class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
         <div class="relative w-full h-56 bg-gray-100">
-          <img src="<?= $product['img'] ?>" alt="<?= $product['nama_produk'] ?>"
+          <img src="<?= BASE_URL ?>/img/<?= htmlspecialchars($product['img']) ?>" alt="<?= $product['nama_produk'] ?>"
                class="object-cover w-full h-full hover:scale-105 transition-transform duration-300">
         </div>
 
@@ -48,7 +48,7 @@ $categories = $data['categories'];
           </h2>
 
           <p class="text-sm text-gray-500 mb-1">
-            <span class="font-medium text-gray-700">Stok:</span> <?= $product['stok'] ?>
+            <span class="font-medium text-gray-700">Stok:</span> <?= htmlspecialchars($product['stok']) ?>
           </p>
 
           <p class="text-sm text-gray-500 mb-3">

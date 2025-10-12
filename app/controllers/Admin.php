@@ -26,11 +26,19 @@ class Admin extends Controller {
    
   }
   public function addProduct(){
+    
     $this->view('templates/admin/header', );
     $this->view('templates/admin/sidebar', );
     $this->view('templates/admin/navbar', );
     $this->view('admin/add_product', );
     $this->view('templates/admin/footer', );
+  }
+  public function storeProduct(){
+    $file = $_FILES['img'];
+    if( $this->productModel->storeProduct($_POST, $file) > 0){
+      header('Location: ' . BASE_URL . '/admin');
+      exit;
+    }
   }
 }
 

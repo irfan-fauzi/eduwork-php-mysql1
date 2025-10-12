@@ -9,7 +9,7 @@ $product = $data['product'];
     
     <!-- Gambar Produk -->
     <div class="flex justify-center items-center">
-      <img src="<?= $product['img'] ?>" 
+      <img  src="<?= BASE_URL ?>/img/<?= htmlspecialchars($product['img']) ?>"  
            alt="<?= $product['nama_produk'] ?>" 
            class="object-cover rounded-2xl w-full max-w-md h-[350px] shadow-sm hover:scale-105 transition-transform duration-300">
     </div>

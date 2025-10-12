@@ -1,6 +1,6 @@
 <section class="px-[2rem] py-[1rem]">
     <h1 class="text-2xl font-semibold">Add prodcut</h1>
-    <form action="#" method="GET" enctype="multipart/form-data" class="max-w-screen-lg">
+    <form action="<?= BASE_URL ?>/admin/storeProduct" method="POST" enctype="multipart/form-data" class="max-w-screen-lg">
         <!-- Upload Gambar -->
         <div class="flex align-items-center gap-[16px] mb-[10px] mt-5">
             <div>
