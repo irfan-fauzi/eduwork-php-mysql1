@@ -72,7 +72,66 @@ class Product_model {
     }
   }
 
+  public function deleteProductbyId($id) {
+    $this->db->query("SELECT img FROM {$this->table} WHERE id = :id");
+    $this->db->bind(':id', $id);
+    $product = $this->db->single();
+
+    if ($product) {
+        // Hapus data dari database
+        $this->db->query("DELETE FROM {$this->table} WHERE id = :id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+
+        // Jika ada gambar, hapus file-nya juga
+        $imagePath = __DIR__ . '/../../img/' . $product['img'];
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
+        // Redirect ke halaman admin
+        header('Location: ' . BASE_URL . '/admin');
+        exit;
+    } else {
+        throw new Exception('Produk tidak ditemukan');
+    }
+  }
+
+  public function updateProduct($id, $data, $file) {
+
+    $this->db->query("SELECT img FROM {$this->table} WHERE id = :id");
+    $this->db->bind('id', $id);
+    $old = $this->db->single();
+
+    $imgName = $old['img'];
+    
+    if($file['error'] == 0) {
+      $imgName = $this->uploadImage($file);
+      $oldPath = __DIR__ .'/../../img/'. $old['img'];
+      if(file_exists($oldPath)) unlink($oldPath);
+    }
+
+    $query = "UPDATE {$this->table} SET 
+              nama_produk = :nama_produk,
+              img = :img,
+              harga = :harga,
+              deskripsi = :deskripsi,
+              stok = :stok,
+              category = :category
+              WHERE id = :id";
 
 
+    $this->db->query($query);
+    $this->db->bind(":nama_produk", $data["nama_produk"]);
+    $this->db->bind(":img", $imgName);
+    $this->db->bind(":harga", $data["harga"]);
+    $this->db->bind(":deskripsi", $data["deskripsi"]);
+    $this->db->bind(":stok", $data["stok"]);
+    $this->db->bind(":category", $data["category"]);
+    $this->db->bind(':id', $id);
 
+    $this->db->execute();
+
+
+  }
 }

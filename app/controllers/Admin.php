@@ -33,6 +33,7 @@ class Admin extends Controller {
     $this->view('admin/add_product', );
     $this->view('templates/admin/footer', );
   }
+
   public function storeProduct(){
     $file = $_FILES['img'];
     if( $this->productModel->storeProduct($_POST, $file) > 0){
@@ -40,6 +41,36 @@ class Admin extends Controller {
       exit;
     }
   }
+
+  public function delete($id){
+    $data = $this->productModel->getProductById($id);
+    $this->view('templates/admin/header', );
+    $this->view('templates/admin/sidebar', );
+    $this->view('templates/admin/navbar', );
+    $this->view('admin/confirm_delete', $data);
+    $this->view('templates/admin/footer', );
+  }
+  public function destroy($id){
+    $this->productModel->deleteProductById($id);
+  }
+
+  public function edit( $id ){
+
+    $data = $this->productModel->getProductById($id);
+    $this->view('templates/admin/header', );
+    $this->view('templates/admin/sidebar', );
+    $this->view('templates/admin/navbar', );
+    $this->view('admin/edit_product', $data);
+    $this->view('templates/admin/footer', );
+  }
+
+  public function updateproduct( $id ){ 
+    $data = $_POST;
+    $file = $_FILES['img'];
+    $this->productModel->updateProduct($id, $data, $file);
+    header('Location: ' . BASE_URL . '/admin');
+  }
+
 }
 
 ?>

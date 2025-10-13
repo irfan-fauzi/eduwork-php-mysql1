@@ -71,8 +71,8 @@
                                 <td class="px-4 py-3 text-sm"><?= $product['stok']; ?></td>
                                 <td class="px-4 py-3 text-sm">
                                     <div class="flex gap-2">
-                                        <button class="px-2 py-1 text-xs rounded border">Edit</button>
-                                        <button class="px-2 py-1 text-xs rounded border">Hapus</button>
+                                        <a href="<?= BASE_URL ?>admin/edit/<?= $product['id'] ?>" class="px-2 py-1 text-xs rounded border bg-blue-600 text-white">Edit</a>
+                                        <a href="<?= BASE_URL ?>admin/delete/<?= $product['id'] ?>" class="px-2 py-1 text-xs rounded border bg-red-500 text-white">Hapus</a>
                                     </div>
                                 </td>
                             </tr>
